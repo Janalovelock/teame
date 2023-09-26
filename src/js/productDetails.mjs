@@ -28,7 +28,7 @@ async function renderProductDetails(product){
   let img = newProduct.querySelector("img.divider")
   img.src = product.Image
   img.alt = product.NameWithoutBrand
-  newProduct.querySelector(".product-card__price").textContent = product.ListPrice
+  newProduct.querySelector(".product-card__price").textContent = `$${product.ListPrice}`
   newProduct.querySelector(".product__color").textContent = product.Colors.ColorName
   newProduct.querySelector(".product__description").innerHTML = product.DescriptionHtmlSimple
   newProduct.querySelector("#addToCart").setAttribute("data-id", product.Id)
