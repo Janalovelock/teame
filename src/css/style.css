@@ -202,6 +202,11 @@ button {
   grid-column: 3;
 }
 
+/*general css rules*/
+.hide {
+  display: none;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
