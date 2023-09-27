@@ -19,7 +19,8 @@ function renderCartContents() {
     document.querySelector(".cart-footer").classList.remove("hide");
   } else {
     // Cart is empty
-    document.querySelector(".product-list").innerHTML = "<p>Your cart is empty.</p>";
+    document.querySelector(".product-list").innerHTML =
+      "<p>Your cart is empty.</p>";
     document.querySelector(".cart-footer").classList.add("hide");
   }
 }
