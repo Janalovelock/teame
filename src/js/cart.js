@@ -6,17 +6,44 @@ function renderCartContents() {
   // Check if there are items in the cart
   if (cartItems && cartItems.length > 0) {
     // Cart has items
-    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-    document.querySelector(".product-list").innerHTML = htmlItems.join("");
+    const productList = document.querySelector(".product-list");
+    productList.innerHTML = ""; // Clear the current cart display
+
+    cartItems.forEach((item, index) => {
+      // Create a cart item element
+      const cartItem = document.createElement("li");
+      cartItem.classList.add("cart-card", "divider");
+
+      // Display item details (name, price, etc.)
+      cartItem.innerHTML = cartItemTemplate(item, index);
+
+      // Create a "Remove" button
+      const removeButton = document.createElement("button");
+      removeButton.classList.add("remove-button");
+      removeButton.textContent = "Remove";
+
+      // Set up a click event listener for the "Remove" button
+      removeButton.addEventListener("click", () => {
+        removeFromCart(index);
+      });
+
+      // Append the "Remove" button to the cart item
+      cartItem.appendChild(removeButton);
+
+      // Append the cart item to the product list
+      productList.appendChild(cartItem);
+    });
 
     // Calculate total price
     const total = cartItems.reduce((acc, item) => acc + item.FinalPrice, 0);
 
     // Create HTML for total and insert it into the element
     const totalHTML = `<p class="cart-total">Total: $${total.toFixed(2)}</p>`;
-    document.querySelector(".cart-footer").innerHTML = totalHTML;
+    const cartFooter = document.querySelector(".cart-footer");
+    cartFooter.innerHTML = totalHTML;
 
-    document.querySelector(".cart-footer").classList.remove("hide");
+    // Show the cart footer
+    cartFooter.classList.remove("hide");
   } else {
     // Cart is empty
     document.querySelector(".product-list").innerHTML =
@@ -25,9 +52,8 @@ function renderCartContents() {
   }
 }
 
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
-  <a href="#" class="cart-card__image">
+function cartItemTemplate(item, index) {
+  return `<a href="#" class="cart-card__image">
     <img
       src="${item.Image}"
       alt="${item.Name}"
@@ -38,10 +64,16 @@ function cartItemTemplate(item) {
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice.toFixed(2)}</p>
-</li>`;
+  <p class="cart-card__price">$${item.FinalPrice.toFixed(2)}</p>`;
+}
 
-  return newItem;
+function removeFromCart(index) {
+  const cartItems = getLocalStorage("so-cart");
+  if (cartItems && cartItems.length > index) {
+    cartItems.splice(index, 1); // Remove the item at the specified index
+    localStorage.setItem("so-cart", JSON.stringify(cartItems));
+    renderCartContents(); // Update the cart display
+  }
 }
 
 renderCartContents();
