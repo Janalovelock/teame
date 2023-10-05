@@ -5,8 +5,8 @@ export default async function productList(selector, category, limit){
     const data = await getData(category)
     let items = []
     for(let i = 0; i < data.length; i++){
-        const imageBool = await fetch(data[i].Image).then((res) => (res.status))
-        if(imageBool == 200 && items.length < limit)
+        const imageBool = await fetch(data[i].Image).then(res => (res.ok)).catch(err => (false));
+        if(imageBool && items.length < limit)
             items.push(data[i])
     }
     renderList(productCardTemplate, selector, items)
