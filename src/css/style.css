@@ -166,6 +166,11 @@ button {
   width: 100%;
 }
 
+.product-detail__add button a {
+  text-decoration: none;
+  color: white;
+}
+
 /* Start cart list card styles */
 .cart-card {
   display: grid;

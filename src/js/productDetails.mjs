@@ -37,10 +37,37 @@ async function renderProductDetails(product){
 
 }
 
+function renderErrorPage(){
+  let errorMessage = "Sorry, it looks like the product you are looking for is "
+    +"not in our database."
+  const temp = document.querySelector("#product-temp");
+  const noProduct = document.importNode(temp.content, true)
+
+  noProduct.querySelector("h3").remove()
+  noProduct.querySelector("h2.divider").textContent = "Sorry! Product not found."
+
+  noProduct.querySelector("img.divider").remove();
+
+  noProduct.querySelector(".product-card__price").remove()
+  noProduct.querySelector(".product__color").remove()
+  noProduct.querySelector(".product__description").textContent = errorMessage;
+  
+  noProduct.querySelector("#addToCart").innerHTML = "<a href=\"/index.html\">Return to Home Page</a>";
+  
+  document.querySelector("main").appendChild(noProduct);
+}
+
 export async function productDetails(productID){
-  let product = await findProductById(productID)
-  await renderProductDetails(product)
-  document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
+  try{
+    let product = await findProductById(productID)
+    if(product == undefined)
+      throw new Error(`Not a valid product ID: "${productID}"`)
+    await renderProductDetails(product)
+    document
+    .getElementById("addToCart")
+    .addEventListener("click", addToCartHandler);
+  } catch (err){
+    console.log(err);
+    renderErrorPage();
+  }
 }
