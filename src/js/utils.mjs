@@ -28,11 +28,30 @@ export function getParam(param = "product"){
   return parameter;
 }
 
-export function renderList(templateFn, parentElement, list, position = 'afterbegin', clear = true){
+export function renderList(templateFn, parentElement, list, position = "afterbegin", clear = true){
   if(clear){
     if(parentElement.children > 0)
       parentElement.children.forEach((child) => {child.remove();});
   }
   const htmlStrings =  list.map((item) => templateFn(item));
-  parentElement.insertAdjacentHTML(position, htmlStrings.join(''));;
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));;
+}
+
+export function updateCartCount() {
+  const cartCountElement = document.querySelector(".cart-count");
+  const cartIcon = document.querySelector(".cart svg"); // Get the cart icon
+
+  // Retrieve cart data from local storage
+  const cartItems = getLocalStorage("so-cart");
+  if (cartCountElement) {
+    if (cartItems && cartItems.length > 0) {
+      // Update the cart count element if there are items in the cart
+      cartCountElement.style.display = "inline-block";
+      cartCountElement.textContent = cartItems.length;
+
+    } else {
+      // Hide the cart count element when the cart is empty
+      cartCountElement.style.display = "none";
+    }
+  }
 }
