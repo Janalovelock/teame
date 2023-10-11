@@ -84,14 +84,15 @@ header {
 /* cart count */
 .cart-count {
   position: relative;
-  display: inline-block;
+  display: none;
   background-color: orange;
   color: white;
   font-size: 10px;
+  height: fit-content;
   border-radius: 50%;
   padding: 3px 6px;
-  top: -20px;
-  right: 11px
+  top: -10px;
+  right: 11px;
 }
 
 button {
@@ -111,12 +112,16 @@ button {
 
 /* Cart icon styles */
 .cart {
+  display: flex;
+  min-width: 48px;
   padding-top: 1em;
   position: relative;
   text-align: center;
 }
-.cart a{
-  text-decoration: none; 
+.cart a {
+  position: relative;
+  left: 0;
+  text-decoration: none;
 }
 
 .cart svg {
@@ -126,7 +131,11 @@ button {
   fill: gray;
 }
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {

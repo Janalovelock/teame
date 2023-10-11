@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, updateCartCount } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -25,6 +25,7 @@ function renderCartContents() {
       // Set up a click event listener for the "Remove" button
       removeButton.addEventListener("click", () => {
         removeFromCart(index);
+        updateCartCount();
       });
 
       // Append the "Remove" button to the cart item
