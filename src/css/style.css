@@ -241,6 +241,44 @@ button {
   grid-row: 2;
   grid-column: 3;
 }
+/*newsletter sign up*/
+.newsletter-signup {
+  text-align: center;
+  padding: 1em;
+  background-color: var(--secondary-color);
+  max-width: 60%;
+  margin: auto; 
+  border-radius: 10px; 
+}
+
+.newsletter-signup h2 {
+  color: white;
+  font-size: var(--large-font);
+  margin-bottom: 10px;
+}
+
+.newsletter-signup form {
+  display: flex;
+  align-items: center;
+}
+
+input[type="email"] {
+  width: 70%;
+  padding: 10px;
+  margin: 0px 10px 0px 0;
+  border: none;
+  border-radius: 5px;
+  line-height: 2;
+}
+
+button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: .5em 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 /*general css rules*/
 .hide {
