@@ -30,7 +30,7 @@ export function getParam(param = "product"){
 
 export function renderList(templateFn, parentElement, list, position = "afterbegin", clear = true){
   if(clear){
-    if(parentElement.children > 0)
+    if (parentElement.children.length > 0)
       parentElement.children.forEach((child) => {child.remove();});
   }
   const htmlStrings =  list.map((item) => templateFn(item));
