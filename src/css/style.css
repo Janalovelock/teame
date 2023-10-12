@@ -124,10 +124,10 @@ button {
   text-decoration: none;
 }
 
-.cart svg {
+.cart #svg {
   width: 25px;
 }
-.cart:hover svg {
+.cart:hover #svg {
   fill: gray;
 }
 @keyframes bounce {
@@ -247,8 +247,8 @@ button {
   padding: 1em;
   background-color: var(--secondary-color);
   max-width: 60%;
-  margin: auto; 
-  border-radius: 10px; 
+  margin: auto;
+  border-radius: 10px;
 }
 
 .newsletter-signup h2 {
@@ -275,7 +275,7 @@ button[type="submit"] {
   background-color: var(--primary-color);
   color: white;
   border: none;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -290,14 +290,14 @@ button[type="submit"] {
   display: inline-block;
   margin-right: 10px;
   margin-top: 10px;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
   font-size: var(--large-font);
   color: var(--primary-color);
 }
 
 .suggested-price {
   font-weight: bold;
-  color: #999; 
+  color: #999;
   font-size: 1em;
 }
 
@@ -305,12 +305,12 @@ button[type="submit"] {
 .discount {
   color: red;
   font-weight: bold;
-  font-size: 1em; 
+  font-size: 1em;
 }
 
 /* Add some spacing between the suggested price and discount */
 
-.our-price{
+.our-price {
   color: var(--secondary-color);
   font-size: 1.5em;
   border-radius: 10px;

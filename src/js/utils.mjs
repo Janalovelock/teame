@@ -37,11 +37,12 @@ export function renderList(templateFn, parentElement, list, position = "afterbeg
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));;
 }
 
-export function renderWithTemplate(templateFn, parentElement, data, callback, position="afterbegin", clear=true) {
+export async function renderWithTemplate(templateFn, parentElement, data, callback, position="afterbegin", clear=true) {
   if (clear) {
       parentElement.innerHTML = "";
   }
-  parentElement.insertAdjacentHTML(position, template);
+  const html = await templateFn(data);
+  parentElement.insertAdjacentHTML(position, html);
   if(callback) {
       callback(data);
   }
@@ -57,24 +58,34 @@ function loadTemplate(path) {
   };
 } 
 
-const headerTemplateFn = loadTemplate("/partials/header.html");
-const footerTemplateFn = loadTemplate("/partials/footer.html");
+export async function loadHeaderFooter() {
+  const headerTemplateFn = loadTemplate("/partials/header.html");
+  const footerTemplateFn = loadTemplate("/partials/footer.html");
+  const header = document.querySelector("header")
+  const footer = document.querySelector("footer")
+  renderWithTemplate(headerTemplateFn, header);
+  renderWithTemplate(footerTemplateFn, footer);
+}
+
 
 export function updateCartCount() {
-  const cartCountElement = document.querySelector(".cart-count");
-  const cartIcon = document.querySelector(".cart svg"); // Get the cart icon
+  const selectInterval = setInterval(() => {
+    const cartCountElement = document.querySelector(".cart-count");
+    const cartIcon = document.querySelector(".cart #svg"); // Get the cart icon
 
-  // Retrieve cart data from local storage
-  const cartItems = getLocalStorage("so-cart");
-  if (cartCountElement) {
-    if (cartItems && cartItems.length > 0) {
-      // Update the cart count element if there are items in the cart
-      cartCountElement.style.display = "inline-block";
-      cartCountElement.textContent = cartItems.length;
+    // Retrieve cart data from local storage
+    const cartItems = getLocalStorage("so-cart");
+    if (cartCountElement) {
+      if (cartItems && cartItems.length > 0) {
+        // Update the cart count element if there are items in the cart
+        cartCountElement.style.display = "inline-block";
+        cartCountElement.textContent = cartItems.length;
 
-    } else {
-      // Hide the cart count element when the cart is empty
-      cartCountElement.style.display = "none";
+      } else {
+        // Hide the cart count element when the cart is empty
+        cartCountElement.style.display = "none";
+      }
+      clearInterval(selectInterval);
     }
-  }
+  }, 25)
 }
