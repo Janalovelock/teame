@@ -3,7 +3,7 @@
 import { updateCartCount, qs } from "./utils.mjs";
 
 function bounceCartIcon() {
-  const cartIcon = document.querySelector(".cart svg"); // Get the cart icon
+  const cartIcon = document.querySelector(".cart #svg"); // Get the cart icon
 
   // Apply the bounce animation to the cart icon
   cartIcon.style.animation = "bounce 0.5s ease-in-out";
@@ -33,5 +33,5 @@ window.addEventListener("load", () => {
       });
       clearInterval(cartInterval);
     }
-  }, 15);
+  }, 25);
 });
