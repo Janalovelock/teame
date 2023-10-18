@@ -134,4 +134,5 @@ function increaseQuantity(index) {
 function updateCartAndRender(cartItems) {
   localStorage.setItem("so-cart", JSON.stringify(cartItems));
   renderCartContents();
+  updateCartCount(); // Call the updateCartCount function to update the cart count
 }

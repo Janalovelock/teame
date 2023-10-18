@@ -109,14 +109,18 @@ header img:hover, header a:hover {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
+  padding: 10px; 
+  margin-bottom: 0px;
 }
 
 .cart-card__price {
   text-align: center;
+
 }
 
 .increase-quantity, .decrease-quantity {
   margin-bottom: 15px;
+  padding: 10px;
 }
 
 button {
@@ -279,14 +283,19 @@ button:hover {
 }
 
 .cart-card__quantity {
-  grid-row: 1;
+  grid-row: 3;
   grid-column: 3;
+  font-size:medium;
 }
 
 .cart-card__price {
   grid-row: 2;
   grid-column: 3;
 }
+.quantity-controls{
+  display: flex;
+}
+
 /*newsletter sign up*/
 .newsletter-signup {
   text-align: center;
@@ -379,7 +388,7 @@ button[type="submit"] {
   }
   .cart-card {
     font-size: inherit;
-    grid-template-columns: 150px auto 15%;
+    grid-template-columns: 30% 30vw 15%;
   }
 }
 

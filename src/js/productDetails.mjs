@@ -2,13 +2,19 @@ import { setLocalStorage, updateCartCount, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 
 function addProductToCart(product) {
-  let storage = localStorage.getItem("so-cart") || null;
-  if (storage != null) {
-    storage = getLocalStorage("so-cart");
-    setLocalStorage("so-cart", storage.concat(product));
-    return;
+  let storage = localStorage.getItem("so-cart") || '[]';
+  const cartItems = JSON.parse(storage);
+
+  const existingItem = cartItems.find(item => item.Id === product.Id);
+
+  if (existingItem) {
+    existingItem.Quantity += 1; // Increment the quantity if the item is already in the cart
+  } else {
+    // If the item is not in the cart, add it with an initial quantity of 1
+    cartItems.push({...product, Quantity: 1});
   }
-  setLocalStorage("so-cart", [product]);
+
+  localStorage.setItem("so-cart", JSON.stringify(cartItems));
 }
 
 // Calculate the discount percentage

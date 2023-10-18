@@ -77,15 +77,20 @@ export function updateCartCount() {
     const cartItems = getLocalStorage("so-cart");
     if (cartCountElement) {
       if (cartItems && cartItems.length > 0) {
-        // Update the cart count element if there are items in the cart
-        cartCountElement.style.display = "inline-block";
-        cartCountElement.textContent = cartItems.length;
+        // Calculate the total quantity of items in the cart
+        let totalQuantity = 0;
+        cartItems.forEach((item) => {
+          totalQuantity += item.Quantity;
+        });
 
+        // Update the cart count element with the total quantity
+        cartCountElement.style.display = "inline-block";
+        cartCountElement.textContent = totalQuantity;
       } else {
         // Hide the cart count element when the cart is empty
         cartCountElement.style.display = "none";
       }
       clearInterval(selectInterval);
     }
-  }, 25)
+  }, 25);
 }
