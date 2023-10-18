@@ -7,6 +7,7 @@
   --tertiary-color: #a4b8c4;
   --light-grey: #d0d0d0;
   --dark-grey: #303030;
+  --orange: rgb(255, 149, 0);
 
   /* sizes */
   --font-base: 18px;
@@ -30,6 +31,15 @@ header {
   justify-content: space-between;
   padding: 0 10px;
 }
+
+header img, header a{
+    transition: transform 0.3s ease;
+  }
+
+header img:hover, header a:hover {
+  transform: scale(1.1);
+}
+
 .logo {
   line-height: 60px;
   width: 245px;
@@ -85,7 +95,7 @@ header {
 .cart-count {
   position: relative;
   display: none;
-  background-color: orange;
+  background-color: var(--orange);
   color: white;
   font-size: 10px;
   height: fit-content;
@@ -110,6 +120,7 @@ header {
 }
 
 button {
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.6s ease;
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
   color: white;
@@ -118,6 +129,17 @@ button {
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+}
+button:hover {
+  transform: scale(1.1);
+  background-color: var(--orange);
+  color: var(--dark-grey);
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--orange);
 }
 .divider {
   border-bottom: 2px solid var(--primary-color);
@@ -187,8 +209,18 @@ button {
   flex: 1 1 45%;
   margin: 0.25em;
   padding: 0.5em;
-  border: 1px solid var(--light-grey);
   max-width: 250px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.6s ease;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid var(--dark-grey);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.product-card:hover {
+  transform: scale(1.1);
+  color: var(--dark-grey);
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--orange);
 }
 .product-card h2,
 .product-card h3,
