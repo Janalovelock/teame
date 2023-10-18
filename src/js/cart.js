@@ -42,7 +42,7 @@ function renderCartContents() {
     });
 
     // Calculate total price
-    const total = cartItems.reduce((acc, item) => acc + item.FinalPrice, 0);
+    const total = cartItems.reduce((acc, item) => acc + item.FinalPrice * item.Quantity, 0);
 
     // Create HTML for total and insert it into the element
     const totalHTML = `<p class="cart-total">Total: $${total.toFixed(2)}</p>`;
@@ -59,7 +59,14 @@ function renderCartContents() {
   }
 }
 
+
 function cartItemTemplate(item, index) {
+  // Initialize the quantity display to 1 if it's undefined
+  if (item.Quantity === undefined) {
+    item.Quantity = 1;
+  }
+   // Calculate the item's price based on the quantity
+   const itemPrice = item.Price * item.Quantity;
   return `<a href="#" class="cart-card__image">
     <img
       src="${item.Image}"
@@ -70,8 +77,12 @@ function cartItemTemplate(item, index) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice.toFixed(2)}</p>`;
+  <div class="quantity-controls">
+    <button class="decrease-quantity" data-index="${index}">-</button>
+    <p class="cart-card__quantity">qty: ${item.Quantity}</p>
+    <button class="increase-quantity" data-index="${index}">+</button>
+  </div>
+  <p class="cart-card__price">$${(item.FinalPrice * item.Quantity).toFixed(2)}</p>`;
 }
 
 function removeFromCart(index) {
@@ -84,3 +95,43 @@ function removeFromCart(index) {
 }
 
 renderCartContents();
+
+// Add event listeners for quantity control buttons
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("decrease-quantity")) {
+    const index = event.target.getAttribute("data-index");
+    decreaseQuantity(index);
+  } else if (event.target.classList.contains("increase-quantity")) {
+    const index = event.target.getAttribute("data-index");
+    increaseQuantity(index);
+  }
+});
+
+// Function to decrease quantity
+function decreaseQuantity(index) {
+  const cartItems = getLocalStorage("so-cart");
+  if (cartItems && cartItems.length > index) {
+    if (cartItems[index].Quantity > 1) {
+      cartItems[index].Quantity--;
+      updateCartAndRender(cartItems);
+    }
+  }
+}
+
+// Function to increase quantity
+function increaseQuantity(index) {
+  const cartItems = getLocalStorage("so-cart");
+  if (cartItems && cartItems.length > index) {
+    if (cartItems[index].Quantity === undefined) {
+      cartItems[index].Quantity = 1; // Initialize to 1 if undefined
+    }
+    cartItems[index].Quantity++;
+    updateCartAndRender(cartItems);
+  }
+}
+
+// Function to update the cart and render the contents
+function updateCartAndRender(cartItems) {
+  localStorage.setItem("so-cart", JSON.stringify(cartItems));
+  renderCartContents();
+}
