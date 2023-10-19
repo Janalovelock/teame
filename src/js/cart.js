@@ -42,7 +42,10 @@ function renderCartContents() {
     });
 
     // Calculate total price
-    const total = cartItems.reduce((acc, item) => acc + item.FinalPrice * item.Quantity, 0);
+    const total = cartItems.reduce(
+      (acc, item) => acc + item.FinalPrice * item.Quantity,
+      0
+    );
 
     // Create HTML for total and insert it into the element
     const totalHTML = `<p class="cart-total">Total: $${total.toFixed(2)}</p>`;
@@ -59,14 +62,13 @@ function renderCartContents() {
   }
 }
 
-
 function cartItemTemplate(item, index) {
   // Initialize the quantity display to 1 if it's undefined
   if (item.Quantity === undefined) {
     item.Quantity = 1;
   }
-   // Calculate the item's price based on the quantity
-   const itemPrice = item.Price * item.Quantity;
+  // Calculate the item's price based on the quantity
+  const itemPrice = item.Price * item.Quantity;
   return `<a href="#" class="cart-card__image">
     <img
       src="${item.Image}"
@@ -82,7 +84,9 @@ function cartItemTemplate(item, index) {
     <p class="cart-card__quantity">qty: ${item.Quantity}</p>
     <button class="increase-quantity" data-index="${index}">+</button>
   </div>
-  <p class="cart-card__price">$${(item.FinalPrice * item.Quantity).toFixed(2)}</p>`;
+  <p class="cart-card__price">$${(item.FinalPrice * item.Quantity).toFixed(
+    2
+  )}</p>`;
 }
 
 function removeFromCart(index) {

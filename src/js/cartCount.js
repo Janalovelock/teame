@@ -26,7 +26,6 @@ window.addEventListener("load", () => {
     // Listen for the "Add to Cart" button click event
     if (addToCartButton) {
       addToCartButton.addEventListener("click", () => {
-
         // Trigger the bounce animation for the cart icon
         bounceCartIcon();
       });
