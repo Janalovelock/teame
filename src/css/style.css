@@ -132,7 +132,7 @@ header img:hover, header a:hover {
 }
 
 .increase-quantity, .decrease-quantity {
-  margin-bottom: 15px;
+  margin-bottom: auto;
   padding: 10px;
 }
 
@@ -284,6 +284,7 @@ button:hover {
 }
 .cart-card p {
   margin-top: 0;
+  text-align: center;
 }
 .cart-card .card__name {
   grid-row: 1;
@@ -307,6 +308,15 @@ button:hover {
 }
 .quantity-controls{
   display: flex;
+  border: 3px solid var(--secondary-color); 
+  border-radius: 10px; 
+}
+.quantity-controls button{
+  color: var(--dark-grey);
+  background-color: white;
+  border: none; 
+  box-shadow: none; 
+
 }
 
 /*newsletter sign up*/
