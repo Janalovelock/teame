@@ -37,7 +37,7 @@ async function renderProductDetails(product) {
   newProduct.querySelector("h2.divider").textContent = product.NameWithoutBrand;
 
   let img = newProduct.querySelector("img.divider");
-  img.src = product.Image;
+  img.src = product.Images.PrimaryLarge;
   img.alt = product.NameWithoutBrand;
 
   // Create the suggested retail price element
@@ -89,9 +89,10 @@ function renderErrorPage() {
 }
 
 
-export async function productDetails(productID) {
+export async function productDetails(productID, productCategory) {
   try {
-    let product = await findProductById(productID);
+    let product = await findProductById(productID, productCategory);
+    console.log(product)
     if (product == undefined) throw new Error(`Not a valid product ID: "${productID}"`);
     await renderProductDetails(product);
     document.getElementById("addToCart").addEventListener("click", addToCartHandler);

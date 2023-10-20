@@ -3,6 +3,7 @@ import { renderList } from "./utils.mjs";
 
 export default async function productList(selector, category, limit){
     const data = await getData(category)
+    console.log(data)
     let items = []
     for(let i = 0; i < data.length; i++){
         const imageBool = await fetch(data[i].Image).then(res => (res.ok)).catch(err => (false));
@@ -20,9 +21,13 @@ function productCardTemplate(product) {
     const discountPercentage = ((suggestedRetailPrice - listPrice) / suggestedRetailPrice) * 100;
 
     return `<li class="product-card">
-            <a href="product_pages/index.html?product=${product.Id}">
+            <a href="/product-pages/index.html?product=${product.Id}">
             <img
-                src="${product.Image}"
+                srcset="${product.Images.PrimarySmall} 80w,
+                        ${product.Images.PrimaryMedium} 160w,
+                        ${product.Images.PrimaryLarge} 320w"
+                
+                src="${product.Images.PrimaryMedium}"
                 alt="Image of ${product.Name}"
             />
             <h3 class="card__brand">${product.Brand.Name}</h3>
