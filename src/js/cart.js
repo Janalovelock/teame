@@ -88,9 +88,7 @@ function cartItemTemplate(item, index) {
     <p class="cart-card__quantity">qty: ${item.Quantity}</p>
     <button class="increase-quantity" data-index="${index}">+</button>
   </div>
-  <p class="cart-card__price">$${(item.FinalPrice * item.Quantity).toFixed(
-    2
-  )}</p>`;
+  <p class="cart-card__price">$${itemPrice.toFixed(2)}</p>`;
 }
 
 function removeFromCart(index) {

@@ -1,8 +1,8 @@
-import { getData } from "./productData.mjs";
+import { getProductsByCategory } from "./externalServices.mjs";
 import { renderList } from "./utils.mjs";
 
 export default async function productList(selector, category, limit){
-    const data = await getData(category)
+    const data = await getProductsByCategory(category)
     console.log(data)
     let items = []
     for(let i = 0; i < data.length; i++){
