@@ -1,16 +1,24 @@
 import { getProductsByCategory } from "./externalServices.mjs";
 import { renderList } from "./utils.mjs";
 
-export default async function productList(selector, category, limit){
-    const data = await getProductsByCategory(category)
-    console.log(data)
-    let items = []
-    for(let i = 0; i < data.length; i++){
-        const imageBool = await fetch(data[i].Image).then(res => (res.ok)).catch(err => (false));
-        if(imageBool && items.length < limit)
-            items.push(data[i])
+export default async function productList(selector, category, limit) {
+    const data = await getProductsByCategory(category);
+    console.log("Data:", data);
+    let items = [];
+    const path = window.location.pathname;
+
+const isMainPage = path === '/index.html';
+
+
+    for (let i = 0; i < data.length; i++) {
+        const imageBool = await fetch(data[i].Image).then(res => res.ok).catch(err => false);
+        // Limit the number of items only if it's the home page
+        if (imageBool && (isMainPage ? items.length < 4 : true)) {
+            items.push(data[i]);
+        }
     }
-    renderList(productCardTemplate, selector, items)
+    console.log("Items:", items);
+    renderList(productCardTemplate, selector, items);
 }
 
 function productCardTemplate(product) {
@@ -36,7 +44,5 @@ function productCardTemplate(product) {
             <span class="discount-percentage">
             (${discountPercentage.toFixed(0)}% off)</span>
         </p></a>
-        </li>`
+        </li>`;
 }
-
-
