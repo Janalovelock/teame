@@ -1,8 +1,8 @@
-import { getData } from "./productData.mjs";
+import { getProductsByCategory } from "./externalServices.mjs";
 import { renderList } from "./utils.mjs";
 
 export default async function productList(selector, category, limit){
-    const data = await getData(category)
+    const data = await getProductsByCategory(category)
     console.log(data)
     let items = []
     for(let i = 0; i < data.length; i++){
@@ -23,11 +23,10 @@ function productCardTemplate(product) {
     return `<li class="product-card">
             <a href="/product-pages/index.html?product=${product.Id}">
             <img
-                srcset="${product.Images.PrimarySmall} 80w,
-                        ${product.Images.PrimaryMedium} 160w,
-                        ${product.Images.PrimaryLarge} 320w"
-                
-                src="${product.Images.PrimaryMedium}"
+                srcset="${product.Images.PrimarySmall} 300w,
+                        ${product.Images.PrimaryMedium} 500w,
+                        ${product.Images.PrimaryLarge} 501w"
+                sizes="(max-width: 300px), (max-width: 500px), (min-width: 501px)"
                 alt="Image of ${product.Name}"
             />
             <h3 class="card__brand">${product.Brand.Name}</h3>

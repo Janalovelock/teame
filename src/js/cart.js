@@ -71,7 +71,11 @@ function cartItemTemplate(item, index) {
   const itemPrice = item.Price * item.Quantity;
   return `<a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
+      srcset="${item.Images.PrimarySmall} 320w,
+              ${item.Images.PrimaryMedium} 500w,
+              ${item.Images.PrimaryLarge} 768w"
+      sizes="(max-width: 320px),
+             (max-width: 570px)"
       alt="${item.Name}"
     />
   </a>
@@ -84,9 +88,7 @@ function cartItemTemplate(item, index) {
     <p class="cart-card__quantity">qty: ${item.Quantity}</p>
     <button class="increase-quantity" data-index="${index}">+</button>
   </div>
-  <p class="cart-card__price">$${(item.FinalPrice * item.Quantity).toFixed(
-    2
-  )}</p>`;
+  <p class="cart-card__price">$${itemPrice.toFixed(2)}</p>`;
 }
 
 function removeFromCart(index) {

@@ -1,5 +1,5 @@
 import { setLocalStorage, updateCartCount, getLocalStorage } from "./utils.mjs";
-import { findProductById } from "./productData.mjs";
+import { findProductById } from "./externalServices.mjs";
 
 function addProductToCart(product) {
   let storage = localStorage.getItem("so-cart") || '[]';
@@ -37,6 +37,9 @@ async function renderProductDetails(product) {
   newProduct.querySelector("h2.divider").textContent = product.NameWithoutBrand;
 
   let img = newProduct.querySelector("img.divider");
+  img.srcset = `${product.Images.PrimaryLarge} 400w,
+                ${product.Images.PrimaryExtraLarge} 500w`
+  img.sizes = `(max-width: 400px), (min-width: 401px)`
   img.src = product.Images.PrimaryLarge;
   img.alt = product.NameWithoutBrand;
 
