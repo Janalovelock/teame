@@ -46,3 +46,4 @@ function productCardTemplate(product) {
         </p></a>
         </li>`;
 }
+export { productList, productCardTemplate };

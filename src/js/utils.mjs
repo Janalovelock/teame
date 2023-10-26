@@ -28,10 +28,12 @@ export function getParam(param = "product"){
   return parameter;
 }
 
-export function renderList(templateFn, parentElement, list, position = "afterbegin", clear = true){
-  if(clear){
-    if (parentElement.children.length > 0)
-      parentElement.children.forEach((child) => {child.remove();});
+export function renderList(templateFn, parentElement, list, position = "afterbegin", clear = true) {
+  if (clear) {
+    // Convert HTMLCollection to array
+    Array.from(parentElement.children).forEach((child) => {
+      child.remove();
+    });
   }
   const htmlStrings =  list.map((item) => templateFn(item));
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));;
