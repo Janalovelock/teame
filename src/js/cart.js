@@ -71,7 +71,11 @@ function cartItemTemplate(item, index) {
   const itemPrice = item.Price * item.Quantity;
   return `<a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
+      srcset="${item.Images.PrimarySmall} 320w,
+              ${item.Images.PrimaryMedium} 500w,
+              ${item.Images.PrimaryLarge} 768w"
+      sizes="(max-width: 320px),
+             (max-width: 570px)"
       alt="${item.Name}"
     />
   </a>
