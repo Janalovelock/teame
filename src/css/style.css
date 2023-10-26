@@ -462,6 +462,24 @@ button[type="submit"]:hover {
   border: 3px solid #000; /* You can adjust the border style as needed */
   padding: 5px; /* Add padding for spacing around the border */
 }
+/*checkout pages format*/
+#checkoutForm fieldset{
+  width: 70vw;
+  margin: auto; 
+padding: 3rem;
+margin-bottom: 3rem;
+
+
+}
+#checkoutForm input{
+  width: 70%; 
+  margin: auto;
+  padding: 1em;  
+}
+#checkoutForm label {
+  text-align: left;
+  color: var(--secondary-color)
+}
 
 /*general css rules*/
 .hide {
