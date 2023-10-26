@@ -7,7 +7,7 @@ export default async function productList(selector, category, limit) {
     let items = [];
     const path = window.location.pathname;
 
-const isMainPage = path === '/index.html';
+const isMainPage = path === '/index.html' || path === '/';
 
 
     for (let i = 0; i < data.length; i++) {
