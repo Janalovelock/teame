@@ -1,17 +1,3 @@
 [
-  {
-    "message": "These alerts are only a test",
-    "background": "darkblue",
-    "color": "orange"
-  },
-  {
-    "message": "Write custom alerts via the alerts.json file",
-    "background": "red",
-    "color": "white"
-  },
-  {
-    "message": "Set custon backgrounds and colors",
-    "background": "green",
-    "color": "yellow"
-  }
+
 ]
