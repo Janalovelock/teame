@@ -3,7 +3,7 @@ import checkoutProcess from "./checkoutProcess.mjs";
 
 loadHeaderFooter();
 
-const form = document.querySelector("form");
+const form = document.querySelector("#checkout-form");
 
 checkoutProcess.init("so-cart", document.querySelector("#order-summary"));
 
@@ -16,7 +16,6 @@ form
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  checkoutProcess.calculateItemSummary();
   checkoutProcess.checkout(e.target);
 });
 
