@@ -1,3 +1,5 @@
+//This file is responsible for rendering product details. It defines functions for adding products to the cart, calculating discount percentages, and rendering product details. It also exports a productDetails function for rendering product details on the product details page.
+
 import { setLocalStorage, updateCartCount, getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./externalServices.mjs";
 

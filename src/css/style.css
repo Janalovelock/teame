@@ -74,6 +74,7 @@ header a:hover {
 
 .hero {
   position: relative;
+  margin-top: 40px;
 }
 .hero .logo {
   position: absolute;
@@ -161,10 +162,9 @@ header a:hover {
   margin-bottom: auto;
   padding: 10px;
 }
-
 button {
-  transition: transform 0.3s ease, background-color 0.3s ease,
-    box-shadow 0.6s ease;
+  transition: transform 0.4s ease, background-color 0.1s ease,
+    box-shadow 0.4s ease;
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
   color: white;
@@ -175,14 +175,16 @@ button {
   cursor: pointer;
   border-radius: 5px;
   border: 2px solid var(--primary-color);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
   margin-bottom: 10px;
+  margin-top: 10px;
+  text-decoration: none;
 }
 button:hover {
   transform: scale(1.1);
   background-color: var(--orange);
   color: var(--dark-grey);
-  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
   border: 2px solid var(--orange);
 }
 .divider {
@@ -280,6 +282,70 @@ button:hover {
 .card__name {
   font-size: 1em;
 }
+
+.breadcrumbs {
+  list-style: none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.breadcrumbs li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  float: left;
+  font-family: Helvetica Neue,sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .05em;
+  line-height: 20px;
+  color: hsl(0, 0%, 30%);
+}
+
+.breadcrumbs li a {
+  display: block;
+  padding: 0 40px 0 0px;
+  color: hsl(0, 0%, 30%);
+  text-decoration: none;
+  height: 20px;
+  position: relative;
+  perspective: 700px;
+}
+
+.breadcrumbs li a:after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-color: var(--primary-color);
+  border-style: solid;
+  border-width: 2px 2px 0 0;
+  
+  -webkit-backface-visibility: hidden;
+  outline: 1px solid transparent;
+  
+  position: absolute;
+  right: 20px;
+  -webkit-transition: all .15s ease;
+     -moz-transition: all .15s ease;
+      -ms-transition: all .15s ease;
+          transition: all .15s ease;
+  -webkit-transform: rotateZ(45deg) skew(10deg, 10deg);
+     -moz-transform: rotateZ(45deg) skew(10deg, 10deg);
+      -ms-transform: rotateZ(45deg) skew(10deg, 10deg);
+          transform: rotateZ(45deg) skew(10deg, 10deg);
+}
+
+
+.breadcrumbs li a:hover:after {
+  right: 15px;
+  -webkit-transform: rotateZ(45deg) skew(-10deg, -10deg);
+     -moz-transform: rotateZ(45deg) skew(-10deg, -10deg);
+      -ms-transform: rotateZ(45deg) skew(-10deg, -10deg);
+          transform: rotateZ(45deg) skew(-10deg, -10deg);
+}
 /* End product list card */
 
 .product-detail {
@@ -375,12 +441,16 @@ input[type="email"] {
   border-radius: 5px;
   line-height: 2;
 }
-
+a.remove-button {
+  text-decoration: none;
+}
 button[type="submit"] {
+  margin-top: 20px;
   background-color: var(--primary-color);
   color: white;
   border: 2px solid var(--primary-color);
   padding: 0.5em 1em;
+  text-decoration: none;
 }
 button[type="submit"]:hover {
   background-color: var(--orange);
