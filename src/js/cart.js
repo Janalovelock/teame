@@ -68,7 +68,7 @@ function cartItemTemplate(item, index) {
     item.Quantity = 1;
   }
   // Calculate the item's price based on the quantity
-  const itemPrice = item.Price * item.Quantity;
+  const itemPrice = item.FinalPrice * item.Quantity;
   return `<a href="#" class="cart-card__image">
     <img
       srcset="${item.Images.PrimarySmall} 320w,
