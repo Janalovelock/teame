@@ -6,7 +6,6 @@ import { loadAlerts } from "../js/alertModule.js";
 import { getProductsByCategory } from "../js/externalServices.mjs"; // Import the getProductsByCategory function
 import { productCardTemplate } from "../js/productList.mjs"; // Update the path as per your file structure
 
-
 const container = document.querySelector(".product-list");
 const categoryBreadcrumb = document.getElementById("categoryBreadcrumb");
 
