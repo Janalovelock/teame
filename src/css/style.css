@@ -176,7 +176,7 @@ button {
   cursor: pointer;
   border-radius: 5px;
   border: 2px solid var(--primary-color);
-  box-shadow: 5px 5px 10px #000000b3;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
   text-decoration: none
 }
 
@@ -184,7 +184,14 @@ button:hover {
   transform: scale(1.1);
   background-color: var(--orange);
   color: var(--dark-grey);
-  box-shadow: 10px 10px 15px #00000080;
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--orange)
+}
+button:active {
+  transform: scale(0.9);
+  background-color: red;
+  color: var(--dark-grey);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
   border: 2px solid var(--orange)
 }
 
@@ -259,18 +266,27 @@ button:hover {
   margin: .25em;
   padding: .5em;
   max-width: 250px;
-  transition: transform .3s ease,background-color .3s ease,box-shadow .6s ease;
+  transition: transform .3s ease,box-shadow .3s ease;
+  background-color: white;
   cursor: pointer;
   border-radius: 5px;
   border: 2px solid var(--dark-grey);
-  box-shadow: 2px 2px 5px #0000004d
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .product-card:hover {
+  background-color: var(white);
   transform: scale(1.1);
   color: var(--dark-grey);
-  box-shadow: 3px 3px 7px #00000080;
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
   border: 2px solid var(--orange)
+}
+.product-card:active {
+  
+  transform: scale(0.9);
+  
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid red;
 }
 
 .product-card h2,.product-card h3,.product-card p {
