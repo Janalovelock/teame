@@ -18,10 +18,11 @@ async function getCategoryAndProductName() {
     const category = product.Category;
     const productName = product.NameWithoutBrand;
 
-    console.log(product);
+    // Fetch the number of items in the category
+    const categoryProducts = await getProductsByCategory(category);
 
     // Update the breadcrumb links with the correct category and product names
-    document.getElementById('categoryBreadcrumb').textContent = category;
+    document.getElementById('categoryBreadcrumb').textContent = category + ` (${categoryProducts.length} items)`;
     document.getElementById('productBreadcrumb').textContent = productName;
 
     // Get the element by its ID
