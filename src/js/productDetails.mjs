@@ -99,7 +99,7 @@ export async function productDetails(productID, productCategory) {
     let product = await findProductById(productID, productCategory);
     console.log(product)
     if (product == undefined) throw new Error(`Not a valid product ID: "${productID}"`);
-    await renderProductDetails(product);
+    await renderProductDetails(product, productCategory, product.NameWithoutBrand);
     document.getElementById("addToCart").addEventListener("click", addToCartHandler);
   } catch (err) {
     console.log(err);

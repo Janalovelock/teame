@@ -7,7 +7,6 @@ import { getProductsByCategory } from "../js/externalServices.mjs"; // Import th
 import { productCardTemplate } from "../js/productList.mjs"; // Update the path as per your file structure
 
 const container = document.querySelector(".product-list");
-const categoryBreadcrumb = document.getElementById("categoryBreadcrumb");
 
 let category = getParam("category");
 let prettyCategory = category[0].toUpperCase() + category.slice(1);
