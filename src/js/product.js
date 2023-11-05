@@ -1,6 +1,6 @@
 import { getParam, loadHeaderFooter } from "./utils.mjs";
 import { productDetails } from "./productDetails.mjs";
-import { getProductsByCategory, findProductById } from "./externalServices.mjs"; // Import your functions
+import { getProductsByCategory, findProductById } from "./externalServices.mjs";
 
 loadHeaderFooter();
 

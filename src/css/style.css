@@ -374,6 +374,13 @@ button:active {
   transform: rotate(45deg) skew(-10deg,-10deg)
 }
 
+#productBreadcrumb {
+  overflow:hidden;
+  max-width: 300px;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}
+
 .product-detail {
   padding: 1em;
   max-width: 500px;
@@ -594,6 +601,13 @@ form fieldset,form fieldset label {
       width: 50%
   }
 
+  #productBreadcrumb {
+    overflow:visible;
+    max-width: none;
+    white-space:none;
+    text-overflow: none;
+  }
+  
   .cart-card {
       font-size: inherit;
       grid-template-columns: 30% 30vw 15%
