@@ -29,6 +29,17 @@
     .newsletter-signup {
         width: 75%;
     }
+
+    .slp-outside {
+        font-size: 1.3em;
+    }
+
+    .close {
+        right: 22%;
+        top: 10%;
+        padding-left: .23em;
+        width: 5%;
+    }
   
     #category-grid {
         grid-template-columns: repeat(auto-fill,calc(25% - 15px));

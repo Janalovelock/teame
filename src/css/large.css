@@ -23,7 +23,7 @@
     }
   
     .modal-content {
-        width: 35%;
+        width: 30%;
     }
 
     .newsletter-signup {
@@ -33,6 +33,17 @@
     .cart-card {
         font-size: inherit;
         grid-template-columns: 30% 30vw 15%;
+    }
+
+    .slp-outside {
+        font-size: 1.6em;
+    }
+
+    .close {
+        right: 31.7%;
+        top: 23%;
+        padding-left: .30em;
+        width: 3%;
     }
   
     #category-grid {

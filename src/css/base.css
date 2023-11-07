@@ -117,6 +117,16 @@ header img:hover,header a:hover {
   font-size: .8em;
 }
 
+.slp-outside {
+  font-size: 1.07em;
+  text-align: center;
+}
+
+p.outside {
+  text-align: center;
+  padding: .5em 0;
+}
+
 #category-grid {
   display: grid;
   grid-template-columns: 8em;
@@ -497,10 +507,17 @@ button[type=submit]:hover {
 }
 
 .close {
-  color: #aaa;
+  color: var(--secondary-color);
   float: right;
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 700;
+  position: relative;
+  top: 3%;
+  right: 2%;
+  background-color: var(--orange);
+  width: 9%;
+  padding-left: .19em;
+  border-radius: 50%;
 }
 
 .close:hover,.close:focus {
