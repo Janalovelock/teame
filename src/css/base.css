@@ -432,6 +432,8 @@ button:hover {
   display: flex;
   border: 3px solid var(--secondary-color);
   border-radius: 10px;
+  margin: .5em 0;
+  margin-right: .3em;
 }
 
 .quantity-controls button {
