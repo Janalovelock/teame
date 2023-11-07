@@ -424,6 +424,10 @@ button:hover {
   grid-column: 3;
 }
 
+.cart-total {
+  padding-left: .3em;
+}
+
 .quantity-controls {
   display: flex;
   border: 3px solid var(--secondary-color);
