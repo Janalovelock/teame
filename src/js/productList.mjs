@@ -19,7 +19,7 @@ export default async function productList(selector, category, limit) {
             items.push(data[i]);
         }
     }
-    console.log("Items:", items);
+    console.log("Items:", items.length);
     renderList(productCardTemplate, selector, items);
 }
 

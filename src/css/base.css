@@ -313,8 +313,8 @@ button:active {
 
 .breadcrumbs {
   list-style: none;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: -15px;
+  margin-top: 3px;
   padding: 0 7px
 }
 
@@ -330,7 +330,9 @@ button:active {
   font-weight: 700;
   letter-spacing: .05em;
   line-height: 20px;
-  color: #4d4d4d
+  color: var(--dark-grey);
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .breadcrumbs li a {
@@ -370,6 +372,13 @@ button:active {
   -moz-transform: rotateZ(45deg) skew(-10deg,-10deg);
   -ms-transform: rotateZ(45deg) skew(-10deg,-10deg);
   transform: rotate(45deg) skew(-10deg,-10deg)
+}
+
+#productBreadcrumb {
+  overflow:hidden;
+  max-width: 300px;
+  white-space:nowrap;
+  text-overflow: ellipsis;
 }
 
 .product-detail {
@@ -592,6 +601,13 @@ form fieldset,form fieldset label {
       width: 50%
   }
 
+  #productBreadcrumb {
+    overflow:visible;
+    max-width: none;
+    white-space:none;
+    text-overflow: none;
+  }
+  
   .cart-card {
       font-size: inherit;
       grid-template-columns: 30% 30vw 15%
