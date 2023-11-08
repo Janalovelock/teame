@@ -9,40 +9,36 @@
   --orange: rgb(255, 149, 0);
   --font-base: 18px;
   --small-font: .8em;
-  --large-font: 1.2em;
+  --large-font: 1.2em
 }
 
 * {
-  margin: 0;
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 
 body {
+  margin: 0;
   font-family: var(--font-body);
   font-size: var(--font-base);
-  color: var(--dark-grey);
+  color: var(--dark-grey)
 }
 
 img {
-  width: 100%;
-}
-
-.sleepOutside {
-  font-size: .8em;
+  max-width: 100%
 }
 
 header {
   display: flex;
   justify-content: space-between;
-  padding: 0 10px;
+  padding: 0 10px
 }
 
 header img,header a {
-  transition: transform .3s ease;
+  transition: transform .3s ease
 }
 
 header img:hover,header a:hover {
-  transform: scale(1.1);
+  transform: scale(1.1)
 }
 
 .logo {
@@ -52,41 +48,41 @@ header img:hover,header a:hover {
   display: flex;
   font-size: 30px;
   text-align: right;
-  font-family: var(--font-headline);
+  font-family: var(--font-headline)
 }
 
 .logo img {
   width: 60px;
-  height: 60px;
+  height: 60px
 }
 
 .logo a {
   text-decoration: none;
-  color: var(--font-body);
+  color: var(--font-body)
 }
 
 .alert-list {
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 10px
 }
 
 .alert-list p {
   margin: 0;
   padding: 5px;
   justify-content: center;
-  text-align: center;
+  text-align: center
 }
 
 .hero {
   position: relative;
-  margin-top: 40px;
+  margin-top: 40px
 }
 
 .hero .logo {
   position: absolute;
   left: calc(50% - 60px);
   bottom: -10px;
-  background-color: #fff;
+  background-color: #fff
 }
 
 .logo--square {
@@ -98,33 +94,17 @@ header img:hover,header a:hover {
   box-shadow: 1px 1px 4px var(--light-grey);
   justify-content: center;
   align-items: center;
-  line-height: 1;
+  line-height: 1
 }
 
 .logo--square img {
   width: 90px;
   height: 90px;
-  margin-top: -1.3em;
+  margin-top: -1.3em
 }
 
 .logo--square>div {
-  margin-top: -1.7em;
-}
-
-#sorter {
-  padding: .7em;
-  margin: .9em 0;
-  font-size: .8em;
-}
-
-.slp-outside {
-  font-size: 1.07em;
-  text-align: center;
-}
-
-p.outside {
-  text-align: center;
-  padding: .5em 0;
+  margin-top: -1.7em
 }
 
 #category-grid {
@@ -133,7 +113,7 @@ p.outside {
   grid-template-rows: auto;
   grid-gap: 20px;
   align-items: center;
-  justify-content: center;
+  justify-content: center
 }
 
 #category-grid a {
@@ -143,15 +123,15 @@ p.outside {
   font-weight: 700;
   text-align: center;
   font-size: 1em;
-  margin-bottom: 5px;
+  margin-bottom: 5px
 }
 
 #category-grid a img {
-  margin-bottom: -5px;
+  margin-bottom: -5px
 }
 
 .highlight {
-  color: var(--tertiary-color);
+  color: var(--tertiary-color)
 }
 
 .cart-count {
@@ -164,24 +144,34 @@ p.outside {
   border-radius: 50%;
   padding: 3px 6px;
   top: -10px;
-  right: 11px;
+  right: 11px
+}
+.cart-footer{
+  text-align: center;
+}
+.cart-total{
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .cart-card__quantity,.cart-card__price {
-  justify-content: center;
-  align-items: center;
   font-size: 1.5rem;
   padding: 10px;
-  margin-bottom: 0;
 }
-
+.cart-card__quantity{
+  margin: 0px;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
 .cart-card__price {
   text-align: center;
+  color: var(--secondary-color);
 }
 
 .increase-quantity,.decrease-quantity {
-  margin-bottom: auto;
   padding: 10px;
+  
 }
 
 button {
@@ -189,27 +179,34 @@ button {
   padding: .5em 2em;
   background-color: var(--secondary-color);
   color: #fff;
-  margin: 10px auto;
+  margin: 20px auto;
   display: block;
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
   border-radius: 5px;
   border: 2px solid var(--primary-color);
-  box-shadow: 5px 5px 10px #000000b3;
-  text-decoration: none;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  text-decoration: none
 }
 
 button:hover {
   transform: scale(1.1);
   background-color: var(--orange);
   color: var(--dark-grey);
-  box-shadow: 10px 10px 15px #00000080;
-  border: 2px solid var(--orange);
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--orange)
+}
+button:active {
+  transform: scale(0.9);
+  background-color: red;
+  color: var(--dark-grey);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--orange)
 }
 
 .divider {
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color)
 }
 
 .cart {
@@ -217,35 +214,34 @@ button:hover {
   min-width: 48px;
   padding-top: 1em;
   position: relative;
-  text-align: center;
+  text-align: center
 }
 
 .cart a {
   position: relative;
   left: 0;
-  text-decoration: none;
+  text-decoration: none
 }
 
 .cart #svg {
-  width: 25px;
-  margin-left: 6.6em;
+  width: 25px
 }
 
 .cart:hover #svg {
-  fill: gray;
+  fill: gray
 }
 
 @keyframes bounce {
   0%,20%,50%,80%,to {
-      transform: translateY(0);
+      transform: translateY(0)
   }
 
   40% {
-      transform: translateY(-20px);
+      transform: translateY(-20px)
   }
 
   60% {
-      transform: translateY(-10px);
+      transform: translateY(-10px)
   }
 }
 
@@ -253,13 +249,11 @@ button:hover {
   padding: 0 .5em;
   line-height: 1.3;
   max-width: 600px;
-  margin: auto;
-  padding: 1.5rem 0;
-  text-align: center;
+  margin: auto
 }
 
 .products {
-  padding: .5em;
+  padding: .5em
 }
 
 .product-list {
@@ -274,7 +268,7 @@ button:hover {
 
 .product-list a {
   text-decoration: none;
-  color: var(--dark-grey);
+  color: var(--dark-grey)
 }
 
 .product-card {
@@ -282,37 +276,46 @@ button:hover {
   margin: .25em;
   padding: .5em;
   max-width: 250px;
-  transition: transform .3s ease,background-color .3s ease,box-shadow .6s ease;
+  transition: transform .3s ease,box-shadow .3s ease;
+  background-color: white;
   cursor: pointer;
   border-radius: 5px;
-  border: 2px solid var(--dark-grey);
-  box-shadow: 2px 2px 5px #0000004d;
+  border: 3px solid var(--secondary-color);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .product-card:hover {
+  background-color: var(white);
   transform: scale(1.1);
   color: var(--dark-grey);
-  box-shadow: 3px 3px 7px #00000080;
-  border: 2px solid var(--orange);
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--orange)
+}
+.product-card:active {
+  
+  transform: scale(0.9);
+  
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid red;
 }
 
 .product-card h2,.product-card h3,.product-card p {
-  margin: .5em 0;
+  margin: .5em 0
 }
 
 .card__brand {
-  font-size: var(--small-font);
+  font-size: var(--small-font)
 }
 
 .card__name {
-  font-size: 1em;
+  font-size: 1em
 }
 
 .breadcrumbs {
   list-style: none;
   margin-bottom: 10px;
   margin-top: 10px;
-  padding: 0 7px;
+  padding: 0 7px
 }
 
 .breadcrumbs li {
@@ -327,7 +330,7 @@ button:hover {
   font-weight: 700;
   letter-spacing: .05em;
   line-height: 20px;
-  color: #4d4d4d;
+  color: #4d4d4d
 }
 
 .breadcrumbs li a {
@@ -337,7 +340,7 @@ button:hover {
   text-decoration: none;
   height: 20px;
   position: relative;
-  perspective: 700px;
+  perspective: 700px
 }
 
 .breadcrumbs li a:after {
@@ -358,7 +361,7 @@ button:hover {
   -webkit-transform: rotateZ(45deg) skew(10deg,10deg);
   -moz-transform: rotateZ(45deg) skew(10deg,10deg);
   -ms-transform: rotateZ(45deg) skew(10deg,10deg);
-  transform: rotate(45deg) skew(10deg,10deg);
+  transform: rotate(45deg) skew(10deg,10deg)
 }
 
 .breadcrumbs li a:hover:after {
@@ -366,101 +369,94 @@ button:hover {
   -webkit-transform: rotateZ(45deg) skew(-10deg,-10deg);
   -moz-transform: rotateZ(45deg) skew(-10deg,-10deg);
   -ms-transform: rotateZ(45deg) skew(-10deg,-10deg);
-  transform: rotate(45deg) skew(-10deg,-10deg);
+  transform: rotate(45deg) skew(-10deg,-10deg)
 }
 
 .product-detail {
-  padding: 3em .7em;
+  padding: 1em;
   max-width: 500px;
   margin: auto
 }
 
 .product-detail img {
-  width: 100%;
+  width: 100%
 }
 
 .product-detail__add button a {
   text-decoration: none;
-  color: #fff;
+  color: #fff
 }
 
 .cart-card {
   display: grid;
-  grid-template-columns: 25% auto 25%;
+  grid-template-columns: 25% auto 30%;
   font-size: var(--small-font);
-  align-items: center;
-  align-content: center;
-  justify-items: center;
+  align-items: center
 }
 
 .cart-card__image {
   grid-row: 1/3;
-  grid-column: 1;
+  grid-column: 1
 }
 
 .cart-card p {
   margin-top: 0;
-  text-align: center;
+  text-align: center
 }
 
 .cart-card .card__name {
   grid-row: 1;
-  grid-column: 2;
+  grid-column: 2
 }
 
 .cart-card__color {
   grid-row: 2;
-  grid-column: 2;
+  grid-column: 2
 }
 
 .cart-card__quantity {
   grid-row: 3;
   grid-column: 3;
-  font-size: medium;
+  font-size: medium
 }
 
 .cart-card__price {
   grid-row: 2;
-  grid-column: 3;
-}
-
-.cart-total {
-  padding-left: .5em;
+  grid-column: 3
 }
 
 .quantity-controls {
   display: flex;
-  border: 3px solid var(--secondary-color);
-  border-radius: 10px;
-  margin: .5em 0;
-  margin-right: .3em;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .quantity-controls button {
-  color: var(--dark-grey);
-  background-color: #fff;
-  border: none;
-  box-shadow: none;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  margin: 0px;
+  width: 40px;
 }
 
 .newsletter-signup {
   text-align: center;
   padding: 1em;
   background-color: var(--secondary-color);
-  max-width: 90%;
+  max-width: 60%;
   margin: auto;
-  border-radius: 10px;
+  border-radius: 10px
 }
 
 .newsletter-signup h2 {
   color: #fff;
   font-size: var(--large-font);
-  margin-bottom: 10px;
+  margin-bottom: 10px
 }
 
 .newsletter-signup form {
   display: flex;
-  align-items: center;
+  align-items: center
 }
 
 input[type=email] {
@@ -469,11 +465,11 @@ input[type=email] {
   margin: 0 10px 0 0;
   border: none;
   border-radius: 5px;
-  line-height: 2;
+  line-height: 2
 }
 
 a.remove-button {
-  text-decoration: none;
+  text-decoration: none
 }
 
 button[type=submit] {
@@ -482,13 +478,13 @@ button[type=submit] {
   color: #fff;
   border: 2px solid var(--primary-color);
   padding: .5em 1em;
-  text-decoration: none;
+  text-decoration: none
 }
 
 button[type=submit]:hover {
   background-color: var(--orange);
   border: 2px solid var(--orange);
-  color: var(--dark-grey);
+  color: var(--dark-grey)
 }
 
 .modal {
@@ -501,7 +497,7 @@ button[type=submit]:hover {
   height: 100%;
   overflow: auto;
   background-color: #000;
-  background-color: #0006;
+  background-color: #0006
 }
 
 .modal-content {
@@ -509,31 +505,24 @@ button[type=submit]:hover {
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 75%;
+  width: 75%
 }
 
 .close {
-  color: var(--secondary-color);
+  color: #aaa;
   float: right;
-  font-size: 36px;
-  font-weight: 700;
-  position: relative;
-  top: 3%;
-  right: 2%;
-  background-color: var(--orange);
-  width: 9%;
-  padding-left: .19em;
-  border-radius: 50%;
+  font-size: 28px;
+  font-weight: 700
 }
 
 .close:hover,.close:focus {
   color: #000;
   text-decoration: none;
-  cursor: pointer;
+  cursor: pointer
 }
 
 .discount-percentage {
-  color: red;
+  color: red
 }
 
 .price-section {
@@ -542,19 +531,19 @@ button[type=submit]:hover {
   margin-top: 10px;
   margin-bottom: 5px;
   font-size: var(--large-font);
-  color: var(--primary-color);
+  color: var(--primary-color)
 }
 
 .suggested-price {
   font-weight: 700;
   color: #999;
-  font-size: 1em;
+  font-size: 1em
 }
 
 .discount {
   color: red;
   font-weight: 700;
-  font-size: 1em;
+  font-size: 1em
 }
 
 .our-price {
@@ -562,29 +551,85 @@ button[type=submit]:hover {
   font-size: 1.5em;
   border-radius: 10px;
   border: 3px solid #000;
-  padding: 5px;
+  padding: 5px
 }
 
 form {
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding: 1em
 }
 
 form fieldset,form fieldset label {
   display: flex;
-  flex-direction: column;
+  flex-direction: column
 }
 
 .price {
   float: right;
-  text-align: right;
+  text-align: right
 }
 
 .hide {
-  display: none;
+  display: none
+}
+
+@media screen and (min-width: 500px) {
+  body {
+      max-width:1080px;
+      margin: auto
+  }
+
+  .mission {
+      font-size: 1.2em
+  }
+
+  .breadcrumbs li a {
+      padding: 0 40px 10px 0
+  }
+
+  .modal-content {
+      width: 50%
+  }
+
+  .cart-card {
+      font-size: inherit;
+      grid-template-columns: 30% 30vw 15%
+  }
+
+  #category-grid {
+      grid-template-columns: repeat(auto-fill,calc(25% - 15px));
+      grid-template-rows: 1fr
+  }
+
+  #checkout-form {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto auto
+  }
+
+  #checkout-form fieldset:nth-of-type(1) {
+      grid-column: 1;
+      grid-row: 1/3
+  }
+
+  #checkout-form fieldset:nth-of-type(2) {
+      grid-column: 2;
+      grid-row: 1
+  }
+
+  #checkout-form fieldset:nth-of-type(3) {
+      grid-column: 2;
+      grid-row: 2
+  }
+
+  #checkout-form button:nth-of-type(1) {
+      grid-column: 1/3;
+      grid-row: 3
+  }
 }
 
 footer {
-  margin-left: .5em;
+  font-size: var(--small-font);
+  padding: 1em
 }

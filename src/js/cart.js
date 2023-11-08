@@ -69,6 +69,7 @@ function cartItemTemplate(item, index) {
   }
   // Calculate the item's price based on the quantity
   const itemPrice = item.FinalPrice * item.Quantity;
+
   return `<a href="#" class="cart-card__image">
     <img
       srcset="${item.Images.PrimarySmall} 320w,
@@ -85,7 +86,7 @@ function cartItemTemplate(item, index) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <div class="quantity-controls">
     <button class="decrease-quantity" data-index="${index}">-</button>
-    <p class="cart-card__quantity">qty: ${item.Quantity}</p>
+    <p class="cart-card__quantity">QTY: ${item.Quantity}</p>
     <button class="increase-quantity" data-index="${index}">+</button>
   </div>
   <p class="cart-card__price">$${itemPrice.toFixed(2)}</p>`;
@@ -99,8 +100,6 @@ function removeFromCart(index) {
     renderCartContents(); // Update the cart display
   }
 }
-
-renderCartContents();
 
 // Add event listeners for quantity control buttons
 document.addEventListener("click", (event) => {
@@ -142,3 +141,5 @@ function updateCartAndRender(cartItems) {
   renderCartContents();
   updateCartCount(); // Call the updateCartCount function to update the cart count
 }
+
+renderCartContents();
