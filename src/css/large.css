@@ -15,7 +15,9 @@
   }
     .mission {
       font-size: 1.3em;
-      max-width: 800px;
+      width: 800px;
+      text-align: center;
+      margin: 0 auto;
     }
   
     .breadcrumbs li a {
@@ -40,14 +42,12 @@
     }
 
     .close {
-        right: 31.7%;
+        right: 33%;
         top: 23%;
-        padding-left: .30em;
-        width: 3%;
     }
   
     #category-grid {
-       margin-bottom: 1em;
+        gap: 1.5em;
     }
   
     #checkout-form {

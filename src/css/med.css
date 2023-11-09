@@ -35,14 +35,14 @@
     }
 
     .close {
-        right: 22%;
+        right: 24%;
         top: 10%;
-        padding-left: .23em;
-        width: 5%;
     }
   
     #category-grid {
-        grid-template-columns: repeat(auto-fill,calc(25% - 15px));
+        grid-template-columns: repeat(auto-fill,calc(22% - 15px));
+        justify-content: center;
+        padding: 2em 0;
     }
   
     #checkout-form {
