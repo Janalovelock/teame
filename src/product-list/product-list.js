@@ -14,18 +14,21 @@ loadAlerts();
 loadHeaderFooter();
 
 getProductsByCategory(category) // Fetch the products
-  .then(data => {
+  .then((data) => {
     let prettyCategory = category[0].toUpperCase() + category.slice(1);
 
     // Update the breadcrumb links with the correct category and product names.
-    document.getElementById('categoryBreadcrumb').textContent = prettyCategory + ` (${data.length} items)`;
+    document.getElementById("categoryBreadcrumb").textContent =
+      prettyCategory + ` (${data.length} items)`;
     document.querySelector("title").textContent += prettyCategory;
-    document.querySelector(".products h2").textContent += `: ${prettyCategory} (${data.length} items)`;
+    document.querySelector(
+      ".products h2"
+    ).textContent += `: ${prettyCategory} (${data.length} items)`;
 
     // Call productList and render the products
     productList(container, category, 4);
   })
-  .catch(error => {
+  .catch((error) => {
     console.error(error);
     // Handle errors here
   });

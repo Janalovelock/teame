@@ -3,7 +3,29 @@
 import { getProductsByCategory } from "./externalServices.mjs";
 import { renderList } from "./utils.mjs";
 
-export default async function productList(selector, category, limit) {
+function searchList(container){
+    let i = 0;
+    const items = container.querySelectorAll('.product-card')
+    let elements = Array();
+    for(let i=0; i< items.length; i++){
+        const product = items[i]
+        const brand = product.querySelector('.card__brand').textContent.toLowerCase()
+        const name = product.querySelector('.card__name').textContent.toLowerCase()
+        elements.push({element: product, brand:brand , name:name});
+    }
+    const searchBar = document.querySelector('.search-products input');
+    searchBar.addEventListener('input', (e)=>{
+        const search = e.target.value.toLowerCase();
+        elements.forEach(product => {
+            if(product.brand.includes(search) || product.name.includes(search)){
+                product.element.classList.toggle('hide', false);
+            }
+            else product.element.classList.toggle('hide', true);
+        })
+    })
+}
+
+export default async function productList(selector, category, limit = 4) {
     const data = await getProductsByCategory(category);
     console.log("Data:", data);
     let items = [];
@@ -21,6 +43,7 @@ export default async function productList(selector, category, limit) {
     }
     console.log("Items:", items.length);
     renderList(productCardTemplate, selector, items);
+    searchList(selector);
 }
 
 function productCardTemplate(product) {
