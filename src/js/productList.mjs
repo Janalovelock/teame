@@ -1,7 +1,6 @@
-//This file defines a function productList that is responsible for rendering a list of products. It imports the getProductsByCategory function from an external service, defines a product card template, and exports the productList function.
-
 import { getProductsByCategory } from "./externalServices.mjs";
 import { renderList } from "./utils.mjs";
+//This file defines a function productList that is responsible for rendering a list of products. It imports the getProductsByCategory function from an external service, defines a product card template, and exports the productList function.
 
 function searchList(container){
     let i = 0;
