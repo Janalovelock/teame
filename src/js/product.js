@@ -22,11 +22,12 @@ async function getCategoryAndProductName() {
     const categoryProducts = await getProductsByCategory(category);
 
     // Update the breadcrumb links with the correct category and product names
-    document.getElementById('categoryBreadcrumb').textContent = category + ` (${categoryProducts.length} items)`;
-    document.getElementById('productBreadcrumb').textContent = productName;
+    document.getElementById("categoryBreadcrumb").textContent =
+      category + ` (${categoryProducts.length} items)`;
+    document.getElementById("productBreadcrumb").textContent = productName;
 
     // Get the element by its ID
-    const categoryBreadcrumb = document.getElementById('categoryBreadcrumb');
+    const categoryBreadcrumb = document.getElementById("categoryBreadcrumb");
 
     // Update the href attribute
     categoryBreadcrumb.href = `/product-list/?category=${category}`;

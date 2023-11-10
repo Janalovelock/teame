@@ -7,4 +7,4 @@ const container = document.querySelector(".product-list");
 
 loadAlerts();
 loadHeaderFooter();
-productList(container, "tents", 4);
+productList(container, "tents");
