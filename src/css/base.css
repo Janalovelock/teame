@@ -572,7 +572,7 @@ button[type="submit"]:hover {
 .close {
   color: #000;
   float: right;
-
+  text-align: center;
   font-size: 1.7em;
   font-weight: 700;
   position: relative;
