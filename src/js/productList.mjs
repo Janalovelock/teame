@@ -34,10 +34,20 @@ export default async function productList(selector, category, limit = 4) {
 
 
     for (let i = 0; i < data.length; i++) {
-        const imageBool = await fetch(data[i].Image).then(res => res.ok).catch(err => false);
+        const imageBool = await fetch(data[i].Images.PrimarySmall).then(res => res.ok).catch(err => false);
         // Limit the number of items only if it's the home page
-        if (imageBool && (isMainPage ? items.length < 4 : true)) {
-            items.push(data[i]);
+        if (imageBool && (isMainPage ? items.length < 4 : true)) {        // Add the image URLs to the item object
+            const itemWithImages = {
+                ...data[i],
+                imageUrls: {
+                    extraLarge: data[i].Images.PrimaryExtraLarge,
+                    large: data[i].Images.PrimaryLarge,
+                    medium: data[i].Images.PrimaryMedium,
+                    small: data[i].Images.PrimarySmall,
+                },
+            };
+            items.push(itemWithImages);
+    
         }
     }
     console.log("Items:", items.length);
