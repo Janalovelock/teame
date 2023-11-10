@@ -580,7 +580,7 @@ button[type="submit"]:hover {
   top: 3%;
   background: var(--orange);
   border-radius: 50%;
-  padding: .7em;
+  padding: .5em;
 }
 
 .close:hover,.close:focus {
