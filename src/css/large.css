@@ -12,38 +12,22 @@
     --small-font: 0.8em;
     --large-font: 1.2em;
   }
-  .mission {
-    font-size: 1.3em;
-    max-width: 800px;
-  }
 
-  .breadcrumbs li a {
-    padding: 0 40px 10px 0;
-  }
+    .mission {
+      font-size: 1.3em;
+      width: 800px;
+      text-align: center;
+      margin: 0 auto;
+    }
+  
+    .breadcrumbs li a {
+        padding: 0 40px 10px 0;
+    }
+  
+    .modal-content {
+        width: 30%;
+    }
 
-  .modal-content {
-    width: 30%;
-  }
-
-  .newsletter-signup {
-    width: 55%;
-  }
-
-  .cart-card {
-    font-size: inherit;
-    grid-template-columns: 30% 30vw 15%;
-  }
-
-  .slp-outside {
-    font-size: 1.6em;
-  }
-
-  .close {
-    right: 31.7%;
-    top: 23%;
-    padding-left: 0.3em;
-    width: 3%;
-  }
 
   #category-grid {
     margin-bottom: 1em;
@@ -55,10 +39,42 @@
     grid-template-rows: auto auto auto;
   }
 
-  #checkout-form fieldset:nth-of-type(1) {
-    grid-column: 1;
-    grid-row: 1/3;
-  }
+
+    .close {
+        right: 33%;
+        top: 23%;
+    }
+  
+    #category-grid {
+        gap: 1.5em;
+    }
+  
+    #checkout-form {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+    }
+  
+    #checkout-form fieldset:nth-of-type(1) {
+        grid-column: 1;
+        grid-row: 1/3;
+    }
+  
+    #checkout-form fieldset:nth-of-type(2) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+  
+    #checkout-form fieldset:nth-of-type(3) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+  
+    #checkout-form button:nth-of-type(1) {
+        grid-column: 1/3;
+        grid-row: 3;
+    }
+
 
   #checkout-form fieldset:nth-of-type(2) {
     grid-column: 2;
