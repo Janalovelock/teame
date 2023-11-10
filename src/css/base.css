@@ -42,7 +42,7 @@ header img,header a {
 }
 
 header img:hover,header a:hover {
-  transform: scale(1.1);
+transform: scale(1.1);
 }
 
 .logo {
@@ -116,7 +116,9 @@ header img:hover,header a:hover {
   margin-left: .5em;
 }
 
-.logo--square>div {
+.logo--square
+
+div {
   margin-top: -1.7em;
 }
 
@@ -172,12 +174,12 @@ img.category-img {
 }
 
 
+
 .cart-footer{
+
   text-align: center;
 }
-
-.cart-total{
-
+.cart-total {
   color: var(--secondary-color);
   font-weight: bold;
   font-size: 1.5rem;
@@ -282,7 +284,9 @@ button:active {
 
 .mission {
 
+
   padding: 0 0.5em;
+
   line-height: 1.3;
   max-width: 600px;
   margin: auto;
@@ -524,7 +528,9 @@ button[type="submit"] {
   background-color: var(--primary-color);
   color: #fff;
   border: 2px solid var(--primary-color);
+
   padding: 0.5em 1em;
+
 
   text-decoration: none;
 }
@@ -579,6 +585,7 @@ button[type="submit"]:hover {
 
 .close:hover,.close:focus {
   color: var(--secondary-color);
+
   text-decoration: none;
   cursor: pointer;
 }
