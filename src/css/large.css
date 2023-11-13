@@ -121,4 +121,13 @@
     footer {
         padding: 1em 0;
     }
+
+    .close-modal {
+      bottom: 78%;
+      left:73%;
+    }
+
+    .product-modal-content {
+      width: 50%;
+    }
 }
