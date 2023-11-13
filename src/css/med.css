@@ -57,6 +57,7 @@
   .close-modal {
       bottom: 86%;
       left: 82%;
+      font-size: 2em;
   }
 
   .product-modal-content {

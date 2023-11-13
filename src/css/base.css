@@ -751,3 +751,7 @@ footer {
   font-size: 1.5em;
   cursor: pointer;
 }
+
+.close-modal:hover {
+  background: var(--primary-color);
+}
