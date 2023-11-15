@@ -240,6 +240,7 @@ button:active {
 
 .divider {
   border-bottom: 2px solid var(--primary-color);
+  padding-bottom: .3em;
 }
 
 .cart {
@@ -431,6 +432,7 @@ button:active {
 
 .product-detail img {
   width: 100%;
+  padding: 2em 0;
 }
 
 .product-detail__add button a {
@@ -754,4 +756,17 @@ footer {
 
 .close-modal:hover {
   background: var(--primary-color);
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 0 auto;
+  padding: 1.3em 0;
+  margin-top: 2em;
+}
+
+textarea {
+  padding: .5em;
 }
