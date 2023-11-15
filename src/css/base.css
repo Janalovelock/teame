@@ -708,11 +708,6 @@ form fieldset label {
   }
 }
 
-footer {
-  font-size: var(--small-font);
-  padding: 1em;
-}
-
 .search-products input {
   width: 16em;
   font-size: 0.9rem;
@@ -763,7 +758,7 @@ footer {
   flex-direction: column;
   width: 85%;
   margin: 0 auto;
-  padding: 1.3em 0;
+  padding: 1.3em 0 0;
 }
 
 textarea {
@@ -772,4 +767,10 @@ textarea {
 
 #comments-container {
   padding: 1em .3em;
+}
+
+footer {
+  border-top: 2px solid var(--primary-color);
+  font-size: var(--small-font);
+  padding: 1em;
 }
