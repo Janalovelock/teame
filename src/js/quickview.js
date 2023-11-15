@@ -4,7 +4,6 @@ const quickViewBtn = document.getElementById("quickViewBtn");
 const addCommentBtn = document.getElementById("addCommentBtn");
 const productModal = document.getElementById("product-modal");
 const closeMod = document.getElementsByClassName("close-modal")[0];
-const modalText = document.getElementById("modal-text");
 
 quickViewBtn.onclick = function() {
     productModal.style.display = "block";
@@ -27,9 +26,7 @@ function displayComments() {
     console.log(productComments);
 
     productComments.forEach(comment => {
-        if(!comments) {
-            return;
-        }
+      
         const commentElement = document.createElement("p");
         commentElement.textContent = comment.text;
         commentsContainer.appendChild(commentElement);
@@ -43,7 +40,7 @@ addCommentBtn.onclick = function() {
         text: commentText.value
     };
 
-    comments.push(newComment);
+    comments.unshift(newComment);
 
     displayComments();
 

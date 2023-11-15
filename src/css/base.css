@@ -764,9 +764,12 @@ footer {
   width: 85%;
   margin: 0 auto;
   padding: 1.3em 0;
-  margin-top: 2em;
 }
 
 textarea {
   padding: .5em;
+}
+
+#comments-container {
+  padding: 1em .3em;
 }
