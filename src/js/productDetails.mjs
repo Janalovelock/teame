@@ -53,45 +53,59 @@ async function renderProductDetails(product) {
     let largeImageContainer = document.createElement("div");
     largeImageContainer.classList.add("large-image-container");
 
-    // Create the large image element
+    // Create the large image element for the primary image
     let largeImage = document.createElement("img");
-    largeImage.src = product.Images.ExtraImages[0].Src; // Use the first image as the default large image
-    largeImage.alt = product.Images.ExtraImages[0].Title;
+    largeImage.src = product.Images.PrimaryLarge; // Use the primary image as the default large image
+    largeImage.alt = product.NameWithoutBrand;
     largeImageContainer.appendChild(largeImage);
 
     // Append the large image container to the image container
     imgContainer.appendChild(largeImageContainer);
-    
-   // Iterate through ExtraImages and create image elements
-   product.Images.ExtraImages.forEach(extraImage => {
-    let carouselImg = document.createElement("img");
-    carouselImg.src = extraImage.Src;
-    carouselImg.alt = extraImage.Title;
-    
-    // Add a click event listener to each small image in the carousel
-    carouselImg.addEventListener("click", () => {
-      // Update the large image when a small image is clicked
-      largeImage.src = extraImage.Src;
-      largeImage.alt = extraImage.Title;
-    });
 
-    carouselContainer.appendChild(carouselImg);
+    // Add the PrimaryLarge image to the carousel
+  let primaryLargeImg = document.createElement("img");
+  primaryLargeImg.src = product.Images.PrimaryLarge;
+  primaryLargeImg.alt = product.NameWithoutBrand;
+
+  // Add a click event listener to the primary large image in the carousel
+  primaryLargeImg.addEventListener("click", () => {
+    // Update the large image when the primary large image is clicked
+    largeImage.src = product.Images.PrimaryLarge;
+    largeImage.alt = product.NameWithoutBrand;
   });
 
-  // Append the carousel to the image container
-  imgContainer.appendChild(carouselContainer);
-} else {
-  // If no ExtraImages, use the primary image
-  let img = document.createElement("img");
-  img.srcset = `${product.Images.PrimaryLarge} 400w,
-              ${product.Images.PrimaryExtraLarge} 500w`
-  img.sizes = `(max-width: 400px), (min-width: 401px)`
-  img.src = product.Images.PrimaryLarge;
-  img.alt = product.NameWithoutBrand;
+  carouselContainer.appendChild(primaryLargeImg);
 
-  // Append the primary image to the image container
-  imgContainer.appendChild(img);
-}
+    // Iterate through ExtraImages and create image elements
+    product.Images.ExtraImages.forEach(extraImage => {
+      let carouselImg = document.createElement("img");
+      carouselImg.src = extraImage.Src;
+      carouselImg.alt = extraImage.Title;
+
+      // Add a click event listener to each small image in the carousel
+      carouselImg.addEventListener("click", () => {
+        // Update the large image when a small image is clicked
+        largeImage.src = extraImage.Src;
+        largeImage.alt = extraImage.Title;
+      });
+
+      carouselContainer.appendChild(carouselImg);
+    });
+
+    // Append the carousel to the image container
+    imgContainer.appendChild(carouselContainer);
+  } else {
+    // If no ExtraImages, use the primary image
+    let img = document.createElement("img");
+    img.srcset = `${product.Images.PrimaryLarge} 400w,
+              ${product.Images.PrimaryExtraLarge} 500w`;
+    img.sizes = `(max-width: 400px), (min-width: 401px)`;
+    img.src = product.Images.PrimaryLarge;
+    img.alt = product.NameWithoutBrand;
+
+    // Append the primary image to the image container
+    imgContainer.appendChild(img);
+  }
 
   // Create the suggested retail price element
   const suggestedPrice = document.createElement("p");
@@ -109,7 +123,7 @@ async function renderProductDetails(product) {
   ourPrice.classList.add("price-section", "our-price");
   ourPrice.textContent = `$${product.FinalPrice}`;
 
- // Append the elements to the price section
+  // Append the elements to the price section
   newProduct.querySelector(".product-card__price").appendChild(suggestedPrice);
   newProduct.querySelector(".product-card__price").appendChild(discount);
   newProduct.querySelector(".product-card__price").appendChild(ourPrice);
