@@ -26,7 +26,6 @@ function searchList(container){
 
 export default async function productList(selector, category, limit = 4) {
     const data = await getProductsByCategory(category);
-    console.log("Data:", data);
     let items = [];
     const path = window.location.pathname;
 
@@ -50,7 +49,6 @@ export default async function productList(selector, category, limit = 4) {
     
         }
     }
-    console.log("Items:", items.length);
     renderList(productCardTemplate, selector, items);
     searchList(selector);
 }
