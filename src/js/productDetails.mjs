@@ -38,12 +38,60 @@ async function renderProductDetails(product) {
   newProduct.querySelector("h3").textContent = product.Brand.Name;
   newProduct.querySelector("h2.divider").textContent = product.NameWithoutBrand;
 
-  let img = newProduct.querySelector("img.divider");
+  // Declare imgContainer to append images (primary or carousel)
+  let imgContainer = newProduct.querySelector(".divider");
+
+  console.log(product.Images);
+
+  // Check if ExtraImages exist
+  if (product.Images.ExtraImages && product.Images.ExtraImages.length > 0) {
+    // If ExtraImages exist, create a carousel
+    let carouselContainer = document.createElement("div");
+    carouselContainer.classList.add("carousel");
+
+    // Create a container for the large image
+    let largeImageContainer = document.createElement("div");
+    largeImageContainer.classList.add("large-image-container");
+
+    // Create the large image element
+    let largeImage = document.createElement("img");
+    largeImage.src = product.Images.ExtraImages[0].Src; // Use the first image as the default large image
+    largeImage.alt = product.Images.ExtraImages[0].Title;
+    largeImageContainer.appendChild(largeImage);
+
+    // Append the large image container to the image container
+    imgContainer.appendChild(largeImageContainer);
+    
+   // Iterate through ExtraImages and create image elements
+   product.Images.ExtraImages.forEach(extraImage => {
+    let carouselImg = document.createElement("img");
+    carouselImg.src = extraImage.Src;
+    carouselImg.alt = extraImage.Title;
+    
+    // Add a click event listener to each small image in the carousel
+    carouselImg.addEventListener("click", () => {
+      // Update the large image when a small image is clicked
+      largeImage.src = extraImage.Src;
+      largeImage.alt = extraImage.Title;
+    });
+
+    carouselContainer.appendChild(carouselImg);
+  });
+
+  // Append the carousel to the image container
+  imgContainer.appendChild(carouselContainer);
+} else {
+  // If no ExtraImages, use the primary image
+  let img = document.createElement("img");
   img.srcset = `${product.Images.PrimaryLarge} 400w,
-                ${product.Images.PrimaryExtraLarge} 500w`
+              ${product.Images.PrimaryExtraLarge} 500w`
   img.sizes = `(max-width: 400px), (min-width: 401px)`
   img.src = product.Images.PrimaryLarge;
   img.alt = product.NameWithoutBrand;
+
+  // Append the primary image to the image container
+  imgContainer.appendChild(img);
+}
 
   // Create the suggested retail price element
   const suggestedPrice = document.createElement("p");
@@ -61,7 +109,7 @@ async function renderProductDetails(product) {
   ourPrice.classList.add("price-section", "our-price");
   ourPrice.textContent = `$${product.FinalPrice}`;
 
-  // Append the elements to the price section
+ // Append the elements to the price section
   newProduct.querySelector(".product-card__price").appendChild(suggestedPrice);
   newProduct.querySelector(".product-card__price").appendChild(discount);
   newProduct.querySelector(".product-card__price").appendChild(ourPrice);
@@ -72,6 +120,7 @@ async function renderProductDetails(product) {
 
   document.querySelector("main").appendChild(newProduct);
 }
+
 
 function renderErrorPage() {
   let errorMessage =
