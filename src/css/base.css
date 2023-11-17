@@ -240,6 +240,7 @@ button:active {
 
 .divider {
   border-bottom: 2px solid var(--primary-color);
+  padding-bottom: .3em;
 }
 
 .cart {
@@ -431,6 +432,7 @@ button:active {
 
 .product-detail img {
   width: 100%;
+  padding: 2em 0;
 }
 
 .product-detail__add button a {
@@ -572,7 +574,7 @@ button[type="submit"]:hover {
 .close {
   color: #000;
   float: right;
-
+  text-align: center;
   font-size: 1.7em;
   font-weight: 700;
   position: relative;
@@ -580,7 +582,7 @@ button[type="submit"]:hover {
   top: 3%;
   background: var(--orange);
   border-radius: 50%;
-  padding: .7em;
+  padding: .5em;
 }
 
 .close:hover,.close:focus {
@@ -765,11 +767,6 @@ form fieldset label {
   }
 }
 
-footer {
-  font-size: var(--small-font);
-  padding: 1em;
-}
-
 .search-products input {
   width: 16em;
   font-size: 0.9rem;
@@ -779,3 +776,60 @@ footer {
   display: none;
 }
 
+.product-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.product-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 3px solid var(--primary-color);
+  width: 85%;
+  height: auto;
+}
+
+.close-modal {
+  position: absolute;
+  left: 88%;
+  bottom: 91%;
+  background: var(--orange);
+  padding: .5em;
+  border-radius: 50%;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  background: var(--primary-color);
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 0 auto;
+  padding: 1.3em 0 0;
+}
+
+textarea {
+  padding: .5em;
+}
+
+#comments-container {
+  padding: 1em .3em;
+}
+
+footer {
+  border-top: 2px solid var(--primary-color);
+  font-size: var(--small-font);
+  padding: 1em;
+}

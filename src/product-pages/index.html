@@ -31,6 +31,15 @@
     <br />
     <br />
 
+    <button type="submit" id="quickViewBtn">Quick View</button>
+
+    <!-- Modal for displaying product details -->
+    <div id="product-modal" class="product-modal">
+      <div class="product-modal-content">
+        <span class="close-modal">&times;</span>
+      </div>
+    </div>
+
     <main class="divider">
       <template id="product-temp">
         <section class="product-detail">
@@ -44,8 +53,15 @@
         </section>
       </template>
     </main>
-    <script defer src="../js/cartCount.js" type="module"></script>
+    
+    <div class="comments">
+      <div id="comments-container"></div>
+      <textarea name="comments-section" id="comment-input" cols="30" rows="10" placeholder="Add Your Comments Here"></textarea>
+      <button id="addCommentBtn" type="submit">Add Comment</button>
+    </div>
 
+    <script defer src="../js/cartCount.js" type="module"></script>
+    <script type="module" src="../js/quickview.js"></script>
     <footer></footer>
   </body>
 </html>

@@ -22,7 +22,7 @@ function addProductToCart(product) {
 // Calculate the discount percentage
 function calculateDiscountPercentage(SuggestedRetailPrice, FinalPrice) {
   const discount = ((SuggestedRetailPrice - FinalPrice) / SuggestedRetailPrice) * 100;
-  return discount.toFixed(1);
+  return discount.toFixed(2);
 }
 
 async function addToCartHandler(e) {
@@ -31,7 +31,7 @@ async function addToCartHandler(e) {
   updateCartCount();
 }
 
-async function renderProductDetails(product) {
+export async function renderProductDetails(product) {
   const temp = document.querySelector("#product-temp");
   const newProduct = document.importNode(temp.content, true);
 
@@ -119,6 +119,39 @@ async function renderProductDetails(product) {
   newProduct.querySelector("#addToCart").setAttribute("data-id", product.Id);
 
   document.querySelector("main").appendChild(newProduct);
+
+  //? Create a card to contain the product detail's text in the modal.
+  let modalCard = document.createElement("div");
+  //? Target the modal.
+  let modalText = document.querySelector(".product-modal-content");
+
+  //? Create p elements to append to the modalCard. 
+  let productName = document.createElement("p");
+  let brandName = document.createElement("p");
+  let suggestedSalePrice = document.createElement("p");
+  let disc = document.createElement("p");
+  let finalPrice = document.createElement("p");
+  let description = document.createElement("p");
+
+  //? Set values of text to the elements.
+  productName.textContent = `Product Name: ${product.Brand.Name}`;
+  brandName.textContent = ` Brand Name: ${product.NameWithoutBrand}`;
+  suggestedSalePrice.textContent = `Suggested Retail Price: $${product.SuggestedRetailPrice}`;
+  disc.textContent = `Product Discount: $${calculateDiscountPercentage(product.SuggestedRetailPrice, product.FinalPrice)}`;
+  finalPrice.textContent = `Product Final Price: $${product.FinalPrice}`;
+  description.innerHTML = `Product Description: ${product.DescriptionHtmlSimple}`;
+  
+  //? Append all the elements to the card.
+  modalCard.append(productName);
+  modalCard.append(brandName);
+  modalCard.append(suggestedSalePrice);
+  modalCard.append(disc);
+  modalCard.append(finalPrice);
+  modalCard.append(description);
+
+  //? Append the card to the modal
+  modalText.append(modalCard);
+  console.log(modalText);
 }
 
 
