@@ -25,7 +25,13 @@ body {
   font-size: var(--font-base);
   color: var(--dark-grey);
 }
-
+#addToCart a {
+  text-decoration: none;
+  color: white;
+}
+#addToCart a:hover{
+  color: var(--dark-grey);
+}
 img {
   max-width: 100%;
 }
@@ -571,22 +577,23 @@ button[type="submit"]:hover {
 
 }
 
-.close {
-  color: #000;
+.modal-content .close {
+  color: #ffffff;
   float: right;
   text-align: center;
   font-size: 1.7em;
   font-weight: 700;
   position: relative;
-  right: 5%;
-  top: 3%;
+  right: -35px;
+  top: -37px;
   background: var(--orange);
   border-radius: 50%;
-  padding: .5em;
+  padding-right: 7px;
+  padding-left: 7px;
 }
 
 .close:hover,.close:focus {
-  color: var(--secondary-color);
+  color: var(--dark-grey);
 
   text-decoration: none;
   cursor: pointer;
@@ -705,12 +712,54 @@ form fieldset label {
   height: auto;
 }
 
+/* Styles for the recommended products container */
+.recommended-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.recommended-container-title {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Styles for each recommended product */
+.recommended-product {
+  width: 15%;
+  margin: 0.50em;
+  margin-bottom: 20px;
+  padding: 0.5em;
+  max-width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 3px solid var(--secondary-color);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Hover effect for recommended products */
+.recommended-product:hover {
+  transform: scale(1.1);
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--orange);
+}
+
+.recommended-product:active {
+  transform: scale(0.9);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid red;
+}
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
     margin: auto;
   }
-
+  .modal-content .close {
+    padding-right: 26px;
+  }
   .mission {
     font-size: 1.2em;
   }
@@ -764,6 +813,17 @@ form fieldset label {
   #checkout-form button:nth-of-type(1) {
     grid-column: 1/3;
     grid-row: 3;
+  }
+  @media screen and (min-width: 500px) and (max-width: 768px) {
+    body {
+      max-width: 1080px;
+      margin: auto;
+    }
+    .modal-content .close {
+      padding: 0;
+      padding-right: 7px;
+      padding-left: 7px;
+    }
   }
 }
 

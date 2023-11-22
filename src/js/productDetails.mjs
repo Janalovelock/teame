@@ -1,6 +1,8 @@
 import { setLocalStorage, updateCartCount, getLocalStorage } from "./utils.mjs";
-import { findProductById } from "./externalServices.mjs";
+import { findProductById, getProductsByCategory } from "./externalServices.mjs";
 //This file is responsible for rendering product details. It defines functions for adding products to the cart, calculating discount percentages, and rendering product details. It also exports a productDetails function for rendering product details on the product details page.
+
+const baseURL = import.meta.env.VITE_SERVER_URL
 
 
 function addProductToCart(product) {
@@ -40,8 +42,6 @@ export async function renderProductDetails(product) {
 
   // Declare imgContainer to append images (primary or carousel)
   let imgContainer = newProduct.querySelector(".divider");
-
-  console.log(product.Images);
 
   // Check if ExtraImages exist
   if (product.Images.ExtraImages && product.Images.ExtraImages.length > 0) {
@@ -179,12 +179,101 @@ function renderErrorPage() {
 export async function productDetails(productID, productCategory) {
   try {
     let product = await findProductById(productID, productCategory);
-    console.log(product)
+
     if (product == undefined) throw new Error(`Not a valid product ID: "${productID}"`);
+
     await renderProductDetails(product, productCategory, product.NameWithoutBrand);
-    document.getElementById("addToCart").addEventListener("click", addToCartHandler);
+    document.getElementById('addToCart').addEventListener('click', addToCartHandler);
+
+     // Render recommended products
+     await renderRandomRecommendedProduct();
+
   } catch (err) {
     console.log(err);
     renderErrorPage();
   }
 }
+
+async function renderRandomRecommendedProduct() {
+  try {
+    // Define the list of possible categories
+    const allCategories = ['sleeping-bags', 'tents', 'hammocks', 'backpacks'];
+
+    // Shuffle the categories to get a random order
+    const shuffledCategories = shuffleArray(allCategories);
+
+    // Create a container for the recommended products
+    const recommendedContainerTitle = document.createElement('div');
+    recommendedContainerTitle.classList.add('recommended-container-title');
+
+    // Add a title to the container
+    const title = document.createElement('h2');
+    title.textContent = 'Recommended for you:';
+    recommendedContainerTitle.appendChild(title);
+
+    // Append the title container to the main container
+    document.querySelector('main').appendChild(recommendedContainerTitle);
+
+    // Create a container for the recommended products
+    const recommendedContainer = document.createElement('div');
+    recommendedContainer.classList.add('recommended-container');
+
+    // Fetch three random products and create smaller images for each
+    for (let i = 0; i < 3; i++) {
+      // Select a random category
+      const randomCategory = shuffledCategories[Math.floor(Math.random() * shuffledCategories.length)];
+
+      // Fetch products for the random category
+      const response = await fetch(baseURL + `/products/search/${randomCategory}`);
+      const data = await response.json();
+      const productsInCategory = data.Result;
+
+      // Select a random product from the fetched list
+      const randomProduct = productsInCategory[Math.floor(Math.random() * productsInCategory.length)];
+
+      // Create a container for each recommended product
+      const productContainer = document.createElement('div');
+      productContainer.classList.add('recommended-product');
+
+      // Create an image element for the random product
+      const productImage = document.createElement('img');
+      productImage.src = randomProduct.Images.PrimaryLarge; // Adjust based on your data structure
+      productImage.alt = randomProduct.NameWithoutBrand;
+
+      // Add a click event listener to the image
+      productImage.addEventListener('click', () => {
+        // Redirect to the product details page when the image is clicked
+        window.location.href = `/product-pages/index.html?product=${randomProduct.Id}`;
+      });
+
+      // Create a link for each recommended product
+      const productLink = document.createElement('a');
+      productLink.href = `/product-pages/index.html?product=${randomProduct.Id}`;
+      productLink.textContent = '';
+
+      // Append the image and link to the product container
+      productContainer.appendChild(productImage);
+      productContainer.appendChild(productLink);
+
+      // Append the product container to the recommended container
+      recommendedContainer.appendChild(productContainer);
+    }
+
+    // Append the recommended container to the main container
+    document.querySelector('main').appendChild(recommendedContainer);
+  } catch (err) {
+    console.log(err);
+    // Handle errors if necessary
+  }
+}
+
+// Function to shuffle an array (Fisher-Yates algorithm)
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+
