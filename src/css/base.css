@@ -859,12 +859,12 @@ form fieldset label {
 
 .close-modal {
   position: absolute;
-  left: 88%;
+  left: 85%;
   bottom: 91%;
   background: var(--orange);
   padding: .5em;
   border-radius: 50%;
-  font-size: 1.5em;
+  font-size: 1.7em;
   cursor: pointer;
 }
 
@@ -886,6 +886,15 @@ textarea {
 
 #comments-container {
   padding: 1em .3em;
+  border: 3px solid var(--primary-color);
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentsList {
+  padding: .5em 0;
+  list-style: none;
 }
 
 footer {
