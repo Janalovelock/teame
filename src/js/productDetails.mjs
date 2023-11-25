@@ -165,7 +165,7 @@ export async function renderProductDetails(product) {
 
   //? Append the card to the modal
   modalText.append(modalCard);
-  console.log(modalText);
+  // console.log(modalText);
 }
 
 
