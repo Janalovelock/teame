@@ -892,9 +892,20 @@ textarea {
   flex-direction: column;
 }
 
+.listDiv {
+  background: var(--primary-color);
+  margin: .3rem 0;
+  padding: 1rem .5rem;
+}
+
 .commentsList {
   padding: .5em 0;
   list-style: none;
+}
+
+.commSect {
+  text-align: center;
+  padding-top: 2rem;
 }
 
 footer {

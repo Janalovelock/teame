@@ -36,7 +36,8 @@ let comments = getLocalStorage("comments") || [];
 for (let i = 0; i < comments.length; i++) {
     let comment = comments[i];
     let eachComment = document.createElement("p");
-    eachComment.innerHTML = `<li class="commentsList">@:_${comment.id}: ${comment.text}</li>`
+    eachComment.innerHTML = `<div class="listDiv"><li class="commentsList">@:_${comment.id}:</li>
+    <li class="commentsList">${comment.text}</li></div>`;
     const commentsContainer = document.getElementById("comments-container");
     commentsContainer.append(eachComment);
     // console.log(comment);
